@@ -14,7 +14,7 @@
 
 string version()
 {
-	string s="0.7.1";
+	string s="0.7.2";
 	return s;
 }
 
