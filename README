@@ -1,0 +1,46 @@
+--------------------------------------------------------------
+    Galaxia is a code for synthetic modelling of the Milky Way
+    Copyright (C) 2012  Sanjib Sharma, Joss Bland-Hawthorn
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+--------------------------------------------------------------
+
+For installation and usage see the html guide 
+firefox GalaxiaData/docs/index.html
+
+The output data is in EBF file format.
+Libraries for reading and writing data in EBF file format 
+are available at http://ebfformat.sourceforge.net.  
+Currently supported languages are
+C, C++, Java, Fortran, Python, IDL and Matlab. 
+
+
+The data for Bullock and Johnston models 
+are not included in the standard distribution so as to 
+reduce the size of the distribution. 
+This can be downloaded from 
+http://www.physics.usyd.edu.au/~sanjib/code/bj.tar.gz
+
+These can be easily plugged in by downloading them separately and 
+then putting them in GalaxiaData/nbody1/ folder. 
+cd GalaxiaData/nbody1
+tar -zxvf bj.tar.gz 
+
+
+Presently for inquiries mail me at bug.sanjib at gmail .
+Comments, criticism, bug report and feedback are most welcome. 
+
+--------------------------------------------------------------
+
