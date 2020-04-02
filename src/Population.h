@@ -779,8 +779,8 @@ public:
 //		sigma_v[1]=115.0;
 //		sigma_v[2]=100.0;
 
-		sigma_v[0]=110.0;
-		sigma_v[1]=110.0;
+		sigma_v[0]=100.0;
+		sigma_v[1]=100.0;
 		sigma_v[2]=100.0;
 
 		vcircP=vcircP1;
@@ -788,9 +788,9 @@ public:
 		ID=9;
 		setParams(ID);
 		rho0=0.255*13.7e9;
-		a=78.9 ; b=3.5; g=91.3;
+		a=62.0 ; b=3.5; g=91.3;
 
-		x0=1.59; y0=0.424; z0=0.424;
+		x0=0.70; y0=0.424; z0=0.424;
 		Rc=2.54;
 		TM=Cot::RotationMatrix(0,(g)*PI/180.0);
 		TM*=Cot::RotationMatrix(1,(-b)*PI/180.0);
@@ -845,7 +845,7 @@ public:
 	}
 	double asymmetricDrift(const double* Pos,double v_c,double age1,double sigma_rr)
 	{
-		return (v_c-radiusC(Pos)*71.62);
+		return (v_c-radiusC(Pos)*40.00);
 //		return 79.0;
 	}
 private:
