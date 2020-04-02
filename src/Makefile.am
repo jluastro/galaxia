@@ -1,4 +1,4 @@
-bin_PROGRAMS=galaxia
+bin_PROGRAMS=galaxia_lam20_v3
 galaxia_SOURCES= BHTree.cpp     Galaxia.cpp        Isochrone.cpp \
 Satellite.cpp          TableInterpolator.cpp Cot.cpp Geometry.cpp \
 IsochroneDB.cpp  StellarPopulation.cpp  Timer.cpp \
