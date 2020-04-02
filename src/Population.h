@@ -779,8 +779,8 @@ public:
 //		sigma_v[1]=115.0;
 //		sigma_v[2]=100.0;
 
-		sigma_v[0]=110.0;
-		sigma_v[1]=110.0;
+		sigma_v[0]=100.0;
+		sigma_v[1]=100.0;
 		sigma_v[2]=100.0;
 
 		vcircP=vcircP1;
@@ -845,7 +845,7 @@ public:
 	}
 	double asymmetricDrift(const double* Pos,double v_c,double age1,double sigma_rr)
 	{
-		return (v_c-radiusC(Pos)*71.62);
+		return (v_c-radiusC(Pos)*40.00);
 //		return 79.0;
 	}
 private:
