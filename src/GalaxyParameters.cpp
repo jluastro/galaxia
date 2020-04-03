@@ -17,7 +17,10 @@ GalaxyParameters::GalaxyParameters()
 #define DOUBLE 1
 #define STRING 2
 #define INT 3
-    par_list.push_back(ParMem("GalaxiaData", &GalaxiaData, STRING, "/abc/123", 1));
+    par_list.push_back(ParMem("GalaxiaData", &GalaxiaData, STRING, "", 1));
+	par_list.push_back(ParMem("bulge_sigma_r", &bulge_sigma_r, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_sigma_phi", &bulge_sigma_phi, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_sigma_z", &bulge_sigma_z, DOUBLE, "0", 1));
 	par_list.push_back(ParMem("bulge_x0", &bulge_x0, DOUBLE, "0", 1));
 	par_list.push_back(ParMem("bulge_y0", &bulge_y0, DOUBLE, "0", 1));
 	par_list.push_back(ParMem("bulge_z0", &bulge_z0, DOUBLE, "0", 1));
@@ -25,6 +28,7 @@ GalaxyParameters::GalaxyParameters()
 	par_list.push_back(ParMem("bulge_beta", &bulge_beta, DOUBLE, "0", 1));
 	par_list.push_back(ParMem("bulge_gamma", &bulge_gamma, DOUBLE, "0", 1));
 	par_list.push_back(ParMem("bulge_Rc", &bulge_Rc, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_patternspeed", &bulge_patternspeed, DOUBLE, "0", 1));
 #undef DOUBLE
 #undef STRING
 #undef INT

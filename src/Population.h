@@ -32,7 +32,10 @@ public:
 	double age,dage,feh,dfeh;//,dfehdr;
 	double sigma_v[3];//,dlnsigmau2dr;
 	double vconst;
-	double bulge_x0, bulge_y0, bulge_z0, bulge_alpha, bulge_beta, bulge_gamma, bulge_Rc;
+	double bulge_sigma_r, bulge_sigma_phi, bulge_sigma_z;
+	double bulge_x0, bulge_y0, bulge_z0;
+	double bulge_alpha, bulge_beta, bulge_gamma;
+	double bulge_Rc, bulge_patternspeed;
 	Sampler* imfP;
 	Interp* vcircP;
 	void setParams(int i);
@@ -766,7 +769,7 @@ private:
 class Bulge:public Population
 {
 public:
-	double a,b,g,x0,y0,z0,Rc;
+	double a,b,g,x0,y0,z0,Rc,patternspeed;
 	Matrix<double> TM;
 	Bulge(Interp* vcircP1):TM(3,3)
 	{
@@ -780,9 +783,9 @@ public:
 //		sigma_v[1]=115.0;
 //		sigma_v[2]=100.0;
 
-		sigma_v[0]=110.0;
-		sigma_v[1]=110.0;
-		sigma_v[2]=100.0;
+		sigma_v[0]=bulge_sigma_r;
+		sigma_v[1]=bulge_sigma_phi;
+		sigma_v[2]=bulge_sigma_z;
 
 		vcircP=vcircP1;
 //		double PI=3.141392;
@@ -795,7 +798,7 @@ public:
 
         a=bulge_alpha; b=bulge_beta; g=bulge_gamma;
 		x0=bulge_x0; y0=bulge_y0; z0=bulge_z0;
-		Rc=bulge_Rc;
+		Rc=bulge_Rc; patternspeed=bulge_patternspeed;
 
 		TM=Cot::RotationMatrix(0,(g)*PI/180.0);
 		TM*=Cot::RotationMatrix(1,(-b)*PI/180.0);
@@ -803,12 +806,14 @@ public:
 		//		TM=Matrix<double>(3,3);
 		//		Matrix<double> TR1(3,3);
 		//		TM.identity();
+		cout<<"sigma_v[0] sigma_v[1] sigma_v[2]"<<endl;
+		cout<<sigma_v[0]<<" "<<sigma_v[1]<<" "<<sigma_v[2]<<" "<<endl;
 		cout<<"x0 y0 z0"<<endl;
 		cout<<x0<<" "<<y0<<" "<<z0<<" "<<endl;
 		cout<<"a b g"<<endl;
 		cout<<a<<" "<<b<<" "<<g<<" "<<endl;
-		cout<<"Rc"<<endl;
-		cout<<Rc<<endl;
+		cout<<"Rc patternspeed"<<endl;
+		cout<<Rc<<" "<<patternspeed<<" "<<endl;
 	}
 	~Bulge();
 	void setPosB(const double* Pos)
@@ -856,7 +861,7 @@ public:
 	}
 	double asymmetricDrift(const double* Pos,double v_c,double age1,double sigma_rr)
 	{
-		return (v_c-radiusC(Pos)*71.62);
+		return (v_c-radiusC(Pos)*patternspeed);
 //		return 79.0;
 	}
 private:
