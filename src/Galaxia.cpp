@@ -433,6 +433,35 @@ int main(int argc, char **argv)
 		//-----------------------------------------------------
 		timer2.start();
 
+		// Force BHTree generation if they don't already exist
+		string bhtree_fname0;
+		string bhtree_fname1;
+		stringstream sout0;
+		stringstream sout1;
+        if((All.warpFlareOn)>0)
+        {
+            sout0<<All.inputDir<<"BHTree-2.2/bhtree_with_wf/bhtree_0_E0.ebf";
+            sout1<<All.inputDir<<"BHTree-2.2/bhtree_with_wf/bhtree_0_E1.ebf";
+        }
+        else
+        {
+            sout0<<All.inputDir<<"BHTree-2.2/bhtree_no_wf/bhtree_0_E0.ebf";
+            sout1<<All.inputDir<<"BHTree-2.2/bhtree_no_wf/bhtree_0_E1.ebf";
+        }
+        bhtree_fname0=sout0.str();
+        bhtree_fname1=sout1.str();
+
+        if (!(fopen(bhtree_fname0.c_str(), "r")) && !(fopen(bhtree_fname1.c_str(), "r"))){
+			cout<<"-- BHTree missing from "<<All.inputDir<<endl;
+			cout<<"-- Forcing BHTree generation"<<endl;
+			for (int i = 0; i < 10; ++i)
+			{
+				timer2.start();
+				StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
+						0, All.inputDir, All.galaxyModelFile);
+				timer2.print("Time Tree generation/reading =");
+			}
+        }
 
 		if(All.fieldTableFile.size()==0)
 		{
