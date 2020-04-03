@@ -18,8 +18,6 @@
 #include "GalaxyParameters.h"
 
 
-
-
 class Population
 {
 public:
@@ -34,6 +32,7 @@ public:
 	double age,dage,feh,dfeh;//,dfehdr;
 	double sigma_v[3];//,dlnsigmau2dr;
 	double vconst;
+	double bulge_x0, bulge_y0, bulge_z0, bulge_alpha, bulge_beta, bulge_gamma, bulge_Rc;
 	Sampler* imfP;
 	Interp* vcircP;
 	void setParams(int i);
@@ -790,16 +789,26 @@ public:
 		ID=9;
 		setParams(ID);
 		rho0=0.255*13.7e9;
-		a=78.9 ; b=3.5; g=91.3;
+//		a=78.9 ; b=3.5; g=91.3;
+//		x0=1.59; y0=0.424; z0=0.424;
+//		Rc=2.54;
 
-		x0=1.59; y0=0.424; z0=0.424;
-		Rc=2.54;
+        a=bulge_alpha; b=bulge_beta; g=bulge_gamma;
+		x0=bulge_x0; y0=bulge_y0; z0=bulge_z0;
+		Rc=bulge_Rc;
+
 		TM=Cot::RotationMatrix(0,(g)*PI/180.0);
 		TM*=Cot::RotationMatrix(1,(-b)*PI/180.0);
 		TM*=Cot::RotationMatrix(2,(a-90.0)*PI/180.0);
 		//		TM=Matrix<double>(3,3);
 		//		Matrix<double> TR1(3,3);
 		//		TM.identity();
+		cout<<"x0 y0 z0"<<endl;
+		cout<<x0<<" "<<y0<<" "<<z0<<" "<<endl;
+		cout<<"a b g"<<endl;
+		cout<<a<<" "<<b<<" "<<g<<" "<<endl;
+		cout<<"Rc"<<endl;
+		cout<<Rc<<endl;
 	}
 	~Bulge();
 	void setPosB(const double* Pos)

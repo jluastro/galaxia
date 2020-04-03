@@ -26,9 +26,6 @@ double exp_imf0(double x)
 		return pow(x,-3.0);
 }
 
-
-
-
 double exp_imf7(double x)
 {
 	return pow(x,-0.5);
@@ -149,14 +146,19 @@ void Population::setVel(StarParticle &Star)
 Population::Population()
 {
 	Rsun=8.0;
-//	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
 	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
-	// TODO Auto-generated constructor stub
 	vconst=226.84;
 
 	GalaxyParams.setFromParameterFile("galaxyparams.txt");
     cout<<"Hello World Population"<<endl;
-    GalaxyParams.print();
+
+    bulge_x0 = GalaxyParams.bulge_x0;
+    bulge_y0 = GalaxyParams.bulge_y0;
+    bulge_z0 = GalaxyParams.bulge_z0;
+    bulge_alpha = GalaxyParams.bulge_alpha;
+    bulge_beta = GalaxyParams.bulge_beta;
+    bulge_gamma = GalaxyParams.bulge_gamma;
+    bulge_Rc = GalaxyParams.bulge_Rc;
 }
 
 Population::~Population()

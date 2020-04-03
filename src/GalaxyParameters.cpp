@@ -18,12 +18,16 @@ GalaxyParameters::GalaxyParameters()
 #define STRING 2
 #define INT 3
     par_list.push_back(ParMem("GalaxiaData", &GalaxiaData, STRING, "/abc/123", 1));
-	par_list.push_back(ParMem("mass", &mass, DOUBLE, "1.2345", 1));
-	par_list.push_back(ParMem("ncomp", &ncomp, INT, "0", 1));
+	par_list.push_back(ParMem("bulge_x0", &bulge_x0, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_y0", &bulge_y0, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_z0", &bulge_z0, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_alpha", &bulge_alpha, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_beta", &bulge_beta, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_gamma", &bulge_gamma, DOUBLE, "0", 1));
+	par_list.push_back(ParMem("bulge_Rc", &bulge_Rc, DOUBLE, "0", 1));
 #undef DOUBLE
 #undef STRING
 #undef INT
-
 }
 #undef CODEDATAPATH
 
@@ -31,18 +35,6 @@ GalaxyParameters::GalaxyParameters()
 GalaxyParameters::~GalaxyParameters()
 {
 }
-
-void GalaxyParameters::print( )
-{
-		cout.precision(6);
-		cout<<"----------------------------------"<<endl;
-		cout<<"GalaxyParameters"<<endl;
-		cout<<"GalaxiaData = "<<GalaxiaData<<endl;
-		cout<<"mass = "<<mass<<endl;
-		cout<<"ncomp = "<<ncomp<<endl;
-		cout<<"----------------------------------"<<endl;
-}
-
 
 void GalaxyParameters::checkCompilation( )
 {

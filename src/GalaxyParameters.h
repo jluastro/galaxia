@@ -22,11 +22,11 @@ public:
 	GalaxyParameters();
 	~GalaxyParameters();
 	void setFromParameterFile(const string fname);
-	void print( );
 	void checkCompilation( );
+
 	string GalaxiaData;
-	double mass;
-	int ncomp;
+	double bulge_x0, bulge_y0, bulge_z0, bulge_alpha, bulge_beta, bulge_gamma, bulge_Rc;
+
 	std::vector<ParMem>  par_list;
 };
 
