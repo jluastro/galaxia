@@ -318,7 +318,7 @@ void runModel(SurveyDesign &sur, IsochroneDB& ic, Parameters &All,
 		{
 			timer3.start();
 			StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
-					All.option, All.inputDir);
+					All.option, All.inputDir, All.galaxyModelFile);
 			timer3.print("Time Tree generation/reading =");
 			timer3.start();
 			sp.spawn(sur, ic, All.fSample);
@@ -402,7 +402,7 @@ int main(int argc, char **argv)
 			{
 				timer2.start();
 				StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
-						All.option, All.inputDir);
+						All.option, All.inputDir, All.galaxyModelFile);
 				timer2.print("Time Tree generation/reading =");
 			}
 		}

@@ -18,7 +18,8 @@
 class StellarPopulation
 {
 public:
-	StellarPopulation(int i,const double* posC,int warpFlareOn1,Interp *vcircP1,int option,const string &inputDir);
+	StellarPopulation(int i,const double* posC,int warpFlareOn1,Interp *vcircP1,int option,
+	                  const string &inputDir, const string &galaxyModelFile);
 	void spawn(SurveyDesign &sur,IsochroneDB &ic,double fSample);
 	virtual ~StellarPopulation();
 private:

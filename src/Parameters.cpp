@@ -37,6 +37,7 @@ Parameters::Parameters()
 
 //----General options-----------------------------------------
 	par_list.push_back(ParMem("outputFile",&outputFile,STRING,"Examples/galaxy",1));
+	par_list.push_back(ParMem("galaxyModelFile",&galaxyModelFile,STRING,"",0));
 	par_list.push_back(ParMem("codeDataDir",&inputDir,STRING,CODEDATAPATH,0));
 	if(inputDir[inputDir.length()-1]!='/')
 		inputDir+="/";
@@ -432,7 +433,8 @@ void Parameters::setFromArguments(int argc, char **argv)
 			usage();
 		}
 
-        GalaxyModel GalaxyMordelParams;
+        // Change inputDir, the location of GalaxiaData, to variable from galaxyModelFile
+        GalaxyModel GalaxyModelParams;
         GalaxyModelParams.setFromParameterFile(galaxyModelFile);
         inputDir = GalaxyModelParams.GalaxiaData;
         cout<<"inputDir = "<<inputDir<<endl;

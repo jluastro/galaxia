@@ -148,21 +148,6 @@ Population::Population()
 	Rsun=8.0;
 	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
 	vconst=226.84;
-
-	GalaxyModelParams.setFromParameterFile("galaxyparams.txt");
-    cout<<"Hello World Population"<<endl;
-
-    bulge_sigma_r = GalaxyModelParams.bulge_sigma_r;
-    bulge_sigma_phi = GalaxyModelParams.bulge_sigma_phi;
-    bulge_sigma_z = GalaxyModelParams.bulge_sigma_z;
-    bulge_x0 = GalaxyModelParams.bulge_x0;
-    bulge_y0 = GalaxyModelParams.bulge_y0;
-    bulge_z0 = GalaxyModelParams.bulge_z0;
-    bulge_alpha = GalaxyModelParams.bulge_alpha;
-    bulge_beta = GalaxyModelParams.bulge_beta;
-    bulge_gamma = GalaxyModelParams.bulge_gamma;
-    bulge_Rc = GalaxyModelParams.bulge_Rc;
-    bulge_patternspeed = GalaxyModelParams.bulge_patternspeed;
 }
 
 Population::~Population()

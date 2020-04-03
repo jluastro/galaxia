@@ -32,10 +32,10 @@ public:
 	double age,dage,feh,dfeh;//,dfehdr;
 	double sigma_v[3];//,dlnsigmau2dr;
 	double vconst;
-	double bulge_sigma_r, bulge_sigma_phi, bulge_sigma_z;
-	double bulge_x0, bulge_y0, bulge_z0;
-	double bulge_alpha, bulge_beta, bulge_gamma;
-	double bulge_Rc, bulge_patternspeed;
+//	double bulge_sigma_r, bulge_sigma_phi, bulge_sigma_z;
+//	double bulge_x0, bulge_y0, bulge_z0;
+//	double bulge_alpha, bulge_beta, bulge_gamma;
+//	double bulge_Rc, bulge_patternspeed;
 	Sampler* imfP;
 	Interp* vcircP;
 	void setParams(int i);
@@ -771,7 +771,7 @@ class Bulge:public Population
 public:
 	double a,b,g,x0,y0,z0,Rc,patternspeed;
 	Matrix<double> TM;
-	Bulge(Interp* vcircP1):TM(3,3)
+	Bulge(Interp* vcircP1, const string &galaxyModelFile):TM(3,3)
 	{
 		optionE=0;
 		age=10e9;
@@ -783,9 +783,19 @@ public:
 //		sigma_v[1]=115.0;
 //		sigma_v[2]=100.0;
 
-		sigma_v[0]=bulge_sigma_r;
-		sigma_v[1]=bulge_sigma_phi;
-		sigma_v[2]=bulge_sigma_z;
+        GalaxyModelParams.setFromParameterFile(galaxyModelFile);
+
+        sigma_v[0] = GalaxyModelParams.bulge_sigma_r;
+        sigma_v[1] = GalaxyModelParams.bulge_sigma_phi;
+        sigma_v[2] = GalaxyModelParams.bulge_sigma_z;
+        x0 = GalaxyModelParams.bulge_x0;
+        y0 = GalaxyModelParams.bulge_y0;
+        z0 = GalaxyModelParams.bulge_z0;
+        a = GalaxyModelParams.bulge_alpha;
+        b = GalaxyModelParams.bulge_beta;
+        g = GalaxyModelParams.bulge_gamma;
+        Rc = GalaxyModelParams.bulge_Rc;
+        patternspeed = GalaxyModelParams.bulge_patternspeed;
 
 		vcircP=vcircP1;
 //		double PI=3.141392;
@@ -795,10 +805,6 @@ public:
 //		a=78.9 ; b=3.5; g=91.3;
 //		x0=1.59; y0=0.424; z0=0.424;
 //		Rc=2.54;
-
-        a=bulge_alpha; b=bulge_beta; g=bulge_gamma;
-		x0=bulge_x0; y0=bulge_y0; z0=bulge_z0;
-		Rc=bulge_Rc; patternspeed=bulge_patternspeed;
 
 		TM=Cot::RotationMatrix(0,(g)*PI/180.0);
 		TM*=Cot::RotationMatrix(1,(-b)*PI/180.0);
