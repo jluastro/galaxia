@@ -327,6 +327,7 @@ void Parameters::setFromArguments(int argc, char **argv)
 {
 //	strcpy(halosatFile, "tnull");
 	cout<<"CODEDATAPATH="<<inputDir<<endl;
+//	galaxyModelFile="";
 	option=-1;
 	char * c1;
 	int i;
@@ -415,7 +416,7 @@ void Parameters::setFromArguments(int argc, char **argv)
 
 		if(parameterFile.size()==0)
 		{
-			cout<<"Parameter file or required argument  not specified"<<endl;
+			cout<<"Parameter file or required argument not specified"<<endl;
 			usage();
 		}
 		if(outputFile.size()==0)
@@ -432,7 +433,7 @@ void Parameters::setFromArguments(int argc, char **argv)
 				warpFlareOn=1;
 			else
 			{
-				cout<<"required argument should be warp  or nowarp"<<endl;
+				cout<<"required argument should be warp or nowarp"<<endl;
 				usage();
 			}
 

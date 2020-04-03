@@ -9,10 +9,10 @@
  * of the source code distribution tree.                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#include "GalaxyParameters.h"
+#include "GalaxyModel.h"
 
 
-GalaxyParameters::GalaxyParameters()
+GalaxyModel::GalaxyModel()
 {
 #define DOUBLE 1
 #define STRING 2
@@ -36,17 +36,17 @@ GalaxyParameters::GalaxyParameters()
 #undef CODEDATAPATH
 
 
-GalaxyParameters::~GalaxyParameters()
+GalaxyModel::~GalaxyModel()
 {
 }
 
-void GalaxyParameters::checkCompilation( )
+void GalaxyModel::checkCompilation( )
 {
     if(*(GalaxiaData.rbegin())!='/')
     	GalaxiaData+="/";
 }
 
-void GalaxyParameters::setFromParameterFile(const string fname)
+void GalaxyModel::setFromParameterFile(const string fname)
 {
 #define DOUBLE 1
 #define STRING 2

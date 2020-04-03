@@ -379,7 +379,7 @@ int main(int argc, char **argv)
 	All.setFromArguments(argc, argv);
 //    All.print();
 
-//	GalaxyParameters GalaxyParams;
+//	GalaxyModel GalaxyParams;
 //	GalaxyParams.print();
 //	cout << " -------- " << endl;
 //	GalaxyParams.setFromParameterFile(argv[1]);

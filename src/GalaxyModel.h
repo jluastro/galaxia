@@ -11,16 +11,16 @@
 
 
 
-#ifndef GALAXYPARAMETERS_H_
-#define GALAXYPARAMETERS_H_
+#ifndef GALAXYMODEL_H_
+#define GALAXYMODEL_H_
 
 #include "Parameters.h"
 
-class GalaxyParameters
+class GalaxyModel
 {
 public:
-	GalaxyParameters();
-	~GalaxyParameters();
+	GalaxyModel();
+	~GalaxyModel();
 	void setFromParameterFile(const string fname);
 	void checkCompilation( );
 
@@ -33,4 +33,4 @@ public:
 	std::vector<ParMem>  par_list;
 };
 
-#endif /*GALAXYPARAMETERS_H_*/
+#endif /*GALAXYMODEL_H_*/
