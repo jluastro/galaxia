@@ -30,6 +30,4 @@ public:
 	std::vector<ParMem>  par_list;
 };
 
-string version();
-
 #endif /*GALAXYPARAMETERS_H_*/

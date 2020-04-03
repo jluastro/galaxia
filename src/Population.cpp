@@ -153,6 +153,10 @@ Population::Population()
 	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
 	// TODO Auto-generated constructor stub
 	vconst=226.84;
+
+	GalaxyParams.setFromParameterFile("galaxyparams.txt");
+    cout<<"Hello World Population"<<endl;
+    GalaxyParams.print();
 }
 
 Population::~Population()

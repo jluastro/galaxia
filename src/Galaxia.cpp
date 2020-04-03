@@ -11,7 +11,6 @@
 
 #include "StellarPopulation.h"
 #include "Parameters.h"
-#include "GalaxyParameters.h"
 #include "Timer.h"
 #include "ebfvector.hpp"
 //#include "GInterpolator.h"
@@ -377,14 +376,14 @@ int main(int argc, char **argv)
 
 	//--------------------
 	Parameters All;
-//	All.setFromArguments(argc, argv);
+	All.setFromArguments(argc, argv);
 //    All.print();
 
-	GalaxyParameters GalaxyParams;
-	GalaxyParams.print();
-	cout << " -------- " << endl;
-	GalaxyParams.setFromParameterFile(argv[1]);
-    return 1;
+//	GalaxyParameters GalaxyParams;
+//	GalaxyParams.print();
+//	cout << " -------- " << endl;
+//	GalaxyParams.setFromParameterFile(argv[1]);
+//    return 1;
 
 	nrRan = Ran(All.seed+4);
 	nrGauss = Normaldev(0.0, 1.0, All.seed);

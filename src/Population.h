@@ -15,6 +15,7 @@
 #include "Sampler.h"
 #include "StarParticle.h"
 #include "GInterpolator.h"
+#include "GalaxyParameters.h"
 
 
 
@@ -25,6 +26,7 @@ public:
 	Population();
 	virtual ~Population();
 //	virtual ~Population();
+    GalaxyParameters GalaxyParams;
 	int optionE;
 	int ID;
 	double a2,Rsun,mass_split,l_split,te[3],PosB[3],PosC[3];
