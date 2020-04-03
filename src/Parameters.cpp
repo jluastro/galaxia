@@ -38,7 +38,6 @@ Parameters::Parameters()
 //----General options-----------------------------------------
 	par_list.push_back(ParMem("outputFile",&outputFile,STRING,"Examples/galaxy",1));
 	par_list.push_back(ParMem("galaxyModelFile",&galaxyModelFile,STRING,"",0));
-	par_list.push_back(ParMem("codeDataDir",&inputDir,STRING,CODEDATAPATH,0));
 	if(inputDir[inputDir.length()-1]!='/')
 		inputDir+="/";
 	par_list.push_back(ParMem("outputDir",&outputDir,STRING,"Examples/",1));
@@ -83,7 +82,7 @@ Parameters::Parameters()
 #undef INT
 
 }
-#undef CODEDATAPATH
+
 
 
 Parameters::~Parameters()
@@ -328,7 +327,7 @@ void Parameters::load_sat_list()
 void Parameters::setFromArguments(int argc, char **argv)
 {
 //	strcpy(halosatFile, "tnull");
-	cout<<"CODEDATAPATH="<<inputDir<<endl;
+
 	bool parameterFileLoaded = false;
 	option=-1;
 	char * c1;

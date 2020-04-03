@@ -14,4 +14,3 @@ SurveyDesign.h       Timer.h Functions.h            IsochroneBase.h \
 GalaxyModel.h \
 Parameters.h   SurveyError.h ebf.hpp  \
 ebftable.hpp  ebfvector.hpp
-AM_CPPFLAGS = -DCODEDATAPATH=\"$(datadir)/\"

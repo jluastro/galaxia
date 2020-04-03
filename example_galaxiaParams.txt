@@ -1,4 +1,5 @@
-outputFile example
+outputFile test
+seed 0
 outputDir ./
 photoSys UBV
 magcolorNames V,B-V
@@ -9,13 +10,12 @@ absMagLimits[1] 1000
 colorLimits[0] -1000
 colorLimits[1] 1000
 geometryOption 1
-longitude 1.25
-latitude -2.65
+longitude 5.000000
+latitude 10.000000
 surveyArea 0.001
 fSample 1
 popID -1
 warpFlareOn 1
-seed 0
 r_max 30
 starType 0
 photoError 0

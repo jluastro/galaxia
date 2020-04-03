@@ -33,7 +33,7 @@ GalaxyModel::GalaxyModel()
 #undef STRING
 #undef INT
 }
-#undef CODEDATAPATH
+
 
 
 GalaxyModel::~GalaxyModel()
