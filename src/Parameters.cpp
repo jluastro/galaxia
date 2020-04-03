@@ -119,7 +119,7 @@ void Parameters::usage(void )
 	cout<<endl;
 	cout<<"USAGE:"<<endl;
     cout<<"\t galaxia\t -s parameterfile"<<endl;
-    cout<<"\t galaxia\t -r parameterfile"<<endl;
+    cout<<"\t galaxia\t -r parameterfile galaxymodelfile"<<endl;
     cout<<"\t galaxia\t -a --psys=photometricSystem filename"<<endl;
     cout<<"\t galaxia\t -r --nfile=haloname [--hdim=3 or 6] parameterfile"<<endl;
     cout<<"\t galaxia\t --copyright "<<endl;
@@ -327,7 +327,7 @@ void Parameters::setFromArguments(int argc, char **argv)
 {
 //	strcpy(halosatFile, "tnull");
 	cout<<"CODEDATAPATH="<<inputDir<<endl;
-//	galaxyModelFile="";
+	bool parameterFileLoaded = false;
 	option=-1;
 	char * c1;
 	int i;
@@ -409,14 +409,25 @@ void Parameters::setFromArguments(int argc, char **argv)
 				}
 			}
 			else
-//				strcpy(halosatFile, argv[i]);
-				parameterFile=argv[i];
+			{
+                if (!parameterFileLoaded){
+                    parameterFile=argv[i];
+                    parameterFileLoaded = true;
+                } else {
+                    galaxyModelFile=argv[i];
+                }
+			}
 			i++;
 		}
 
 		if(parameterFile.size()==0)
 		{
 			cout<<"Parameter file or required argument not specified"<<endl;
+			usage();
+		}
+		if(galaxyModelFile.size()==0)
+		{
+			cout<<"Galaxy model file or required argument not specified"<<endl;
 			usage();
 		}
 		if(outputFile.size()==0)
