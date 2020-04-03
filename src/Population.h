@@ -24,7 +24,7 @@ public:
 	Population();
 	virtual ~Population();
 //	virtual ~Population();
-    GalaxyModel GalaxyParams;
+    GalaxyModel GalaxyModelParams;
 	int optionE;
 	int ID;
 	double a2,Rsun,mass_split,l_split,te[3],PosB[3],PosC[3];

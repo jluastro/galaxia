@@ -11,10 +11,11 @@
 
 #include "Parameters.h"
 #include "CompatibilityChecks.h"
+#include "GalaxyModel.h"
 
 string version()
 {
-	string s="0.7.2";
+	string s="0.7.2.lugroup";
 	return s;
 }
 
@@ -118,10 +119,10 @@ void Parameters::usage(void )
     cout<<"\t galaxia-"<<version()<<" -a code to generate a synthetic galaxy survey"<<endl;
 	cout<<endl;
 	cout<<"USAGE:"<<endl;
-    cout<<"\t galaxia\t -s parameterfile"<<endl;
+    cout<<"\t galaxia\t -s parameterfile galaxymodelfile"<<endl;
     cout<<"\t galaxia\t -r parameterfile galaxymodelfile"<<endl;
-    cout<<"\t galaxia\t -a --psys=photometricSystem filename"<<endl;
-    cout<<"\t galaxia\t -r --nfile=haloname [--hdim=3 or 6] parameterfile"<<endl;
+    cout<<"\t galaxia\t -a --psys=photometricSystem filename galaxymodelfile"<<endl;
+    cout<<"\t galaxia\t -r --nfile=haloname [--hdim=3 or 6] parameterfile galaxymodelfile"<<endl;
     cout<<"\t galaxia\t --copyright "<<endl;
     cout<<"\t galaxia\t --help "<<endl;
 	cout<<"DESCRIPTION:"<<endl;
@@ -430,6 +431,12 @@ void Parameters::setFromArguments(int argc, char **argv)
 			cout<<"Galaxy model file or required argument not specified"<<endl;
 			usage();
 		}
+
+        GalaxyModel GalaxyMordelParams;
+        GalaxyModelParams.setFromParameterFile(galaxyModelFile);
+        inputDir = GalaxyModelParams.GalaxiaData;
+        cout<<"inputDir = "<<inputDir<<endl;
+
 		if(outputFile.size()==0)
 		{
 			cout<<"Output file file not specified"<<endl;
