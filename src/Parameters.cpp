@@ -15,7 +15,7 @@
 
 string version()
 {
-	string s="0.7.2.lugroup";
+	string s="0.7.2.1";
 	return s;
 }
 
@@ -327,7 +327,6 @@ void Parameters::load_sat_list()
 void Parameters::setFromArguments(int argc, char **argv)
 {
 //	strcpy(halosatFile, "tnull");
-
 	bool parameterFileLoaded = false;
 	option=-1;
 	char * c1;
@@ -342,7 +341,7 @@ void Parameters::setFromArguments(int argc, char **argv)
 
 				if (strcmp(argv[i], "--version") == 0)
 				{
-					cout << "Version 0.2" << endl;
+					cout << "Version 0.7.2.1" << endl;
 					exit(1);
 				}
 				else if (strcmp(argv[i], "--help") == 0)

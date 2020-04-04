@@ -26,6 +26,9 @@ double exp_imf0(double x)
 		return pow(x,-3.0);
 }
 
+
+
+
 double exp_imf7(double x)
 {
 	return pow(x,-0.5);
@@ -147,6 +150,8 @@ Population::Population()
 {
 	Rsun=8.0;
 	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
+//	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
+    // TODO Auto-generated constructor stub
 	vconst=226.84;
 }
 

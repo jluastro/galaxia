@@ -24,7 +24,6 @@ public:
 	Population();
 	virtual ~Population();
 //	virtual ~Population();
-    GalaxyModel GalaxyModelParams;
 	int optionE;
 	int ID;
 	double a2,Rsun,mass_split,l_split,te[3],PosB[3],PosC[3];
@@ -32,10 +31,6 @@ public:
 	double age,dage,feh,dfeh;//,dfehdr;
 	double sigma_v[3];//,dlnsigmau2dr;
 	double vconst;
-//	double bulge_sigma_r, bulge_sigma_phi, bulge_sigma_z;
-//	double bulge_x0, bulge_y0, bulge_z0;
-//	double bulge_alpha, bulge_beta, bulge_gamma;
-//	double bulge_Rc, bulge_patternspeed;
 	Sampler* imfP;
 	Interp* vcircP;
 	void setParams(int i);
@@ -802,9 +797,6 @@ public:
 		ID=9;
 		setParams(ID);
 		rho0=0.255*13.7e9;
-//		a=78.9 ; b=3.5; g=91.3;
-//		x0=1.59; y0=0.424; z0=0.424;
-//		Rc=2.54;
 
 		TM=Cot::RotationMatrix(0,(g)*PI/180.0);
 		TM*=Cot::RotationMatrix(1,(-b)*PI/180.0);
@@ -812,14 +804,6 @@ public:
 		//		TM=Matrix<double>(3,3);
 		//		Matrix<double> TR1(3,3);
 		//		TM.identity();
-		cout<<"sigma_v[0] sigma_v[1] sigma_v[2]"<<endl;
-		cout<<sigma_v[0]<<" "<<sigma_v[1]<<" "<<sigma_v[2]<<" "<<endl;
-		cout<<"x0 y0 z0"<<endl;
-		cout<<x0<<" "<<y0<<" "<<z0<<" "<<endl;
-		cout<<"a b g"<<endl;
-		cout<<a<<" "<<b<<" "<<g<<" "<<endl;
-		cout<<"Rc patternspeed"<<endl;
-		cout<<Rc<<" "<<patternspeed<<" "<<endl;
 	}
 	~Bulge();
 	void setPosB(const double* Pos)
