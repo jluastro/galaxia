@@ -377,7 +377,6 @@ int main(int argc, char **argv)
 	//--------------------
 	Parameters All;
 	All.setFromArguments(argc, argv);
-    //    All.print();
 	nrRan = Ran(All.seed+4);
 	nrGauss = Normaldev(0.0, 1.0, All.seed);
 	Interp vcirc(All.inputDir + "Model/vcirc.dat");

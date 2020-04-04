@@ -150,8 +150,6 @@ Population::Population()
 {
 	Rsun=8.0;
 	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
-//	PosC[0]=-Rsun; PosC[1]=0.0 ; PosC[2]=0.015;
-    // TODO Auto-generated constructor stub
 	vconst=226.84;
 }
 
