@@ -383,24 +383,13 @@ int main(int argc, char **argv)
 
 	if (All.option == 0)
 	{
-		char c;
-		cout << "Are you sure you want to create the BHTree file (Y/N): ";
-		cin >> c;
-		cout << endl;
-		if (c == 'Y')
-		{
-			for (int i = 0; i < 10; ++i)
-//			for (int i = 9; i < 10; ++i)
-			{
-				timer2.start();
-				StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
-						All.option, All.inputDir, All.galaxyModelFile);
-				timer2.print("Time Tree generation/reading =");
-			}
-		}
-		else
-			cout << "Exiting without making tree" << endl;
-
+        for (int i = 0; i < 10; ++i)
+        {
+            timer2.start();
+            StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
+                    All.option, All.inputDir, All.galaxyModelFile);
+            timer2.print("Time Tree generation/reading =");
+        }
 	}
 
 	if ((All.fSample > 0.0) && (All.option == 1))
