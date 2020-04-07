@@ -116,7 +116,9 @@ void Parameters::usage(void )
 {
 	cout<<endl;
 	cout<<"NAME:"<<endl;
-    cout<<"\t galaxia-"<<version()<<" -a code to generate a synthetic galaxy survey"<<endl;
+    cout<<"\t galaxia-"<<version()<<" - a code to generate a synthetic galaxy survey"<<endl;
+    cout<<"\t Modified to ingest galaxy model parameter files."<<endl;
+    cout<<"\t Source: https://github.com/jluastro/galaxia"<<endl;
 	cout<<endl;
 	cout<<"USAGE:"<<endl;
     cout<<"\t galaxia\t -s [warp or nowarp] galaxymodelfile"<<endl;
