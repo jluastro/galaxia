@@ -1,4 +1,4 @@
-GalaxiaData /Users/Michael/PycharmProjects/galaxia/GalaxiaData_v2
+GalaxiaData /path/to/GalaxiaData
 bulge_Rc 2.54
 bulge_x0 1.59
 bulge_y0 0.424
