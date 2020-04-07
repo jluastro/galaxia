@@ -18,7 +18,7 @@ To install galaxia, first clone the GitHub repository.
     git clone git@github.com:jluastro/galaxia.git
 
 Next download and extract the GalaxiaData folder
-from our online server at `<astro.berkeley.edu/path/to/GalaxiaData_>`_.
+from our online server at :code:`astro.berkeley.edu/path/to/GalaxiaData`.
 
 .. code-block:: bash
 
