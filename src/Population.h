@@ -778,6 +778,7 @@ public:
 //		sigma_v[1]=115.0;
 //		sigma_v[2]=100.0;
 
+        GalaxyModel GalaxyModelParams;
         GalaxyModelParams.setFromParameterFile(galaxyModelFile);
 
         sigma_v[0] = GalaxyModelParams.bulge_sigma_r;
