@@ -1,5 +1,4 @@
 outputFile test
-seed 0
 outputDir ./
 photoSys UBV
 magcolorNames V,B-V
@@ -16,6 +15,7 @@ surveyArea 0.001
 fSample 1
 popID -1
 warpFlareOn 1
+seed 0
 r_max 30
 starType 0
 photoError 0
