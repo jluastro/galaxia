@@ -85,5 +85,5 @@ force the calculation of the BHTree files by running:
 
     galaxia -s [warp or nowarp] example_galaxyModelParams.txt
 
-BHTree files will now be written in the GalaxyData folder specified
+BHTree files will now exist in the GalaxyData folder specified
 in :code:`example_galaxyModelParams.txt`.
