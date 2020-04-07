@@ -33,7 +33,7 @@ Next compile, make, and install the galaxia installation. We recommend following
 non root installation outlined in
 the `galaxia documentation <http://galaxia.sourceforge.net/Galaxia3pub.html>`_.
 The prefix argument specifies the folder where the executable will be written to.
-As stated in the original documentation, if you want to install in home/user/sw/bin/ then run:
+As stated in the original documentation, if you want to install in :code:`home/user/sw/bin/` then run:
 
 .. code-block:: bash
 
@@ -46,7 +46,7 @@ has no effect on the execution of the code. Instead the user is asked to
 specify the location of the GalaxiaData folder in a galaxyModel parameter file
 as described below.
 
-You will now have a galaxia executable located in home/user/sw/bin/. If this
+You will now have a galaxia executable located in :code:`home/user/sw/bin/`. If this
 directory does now already exist in your PATH, then make sure to prepend it.
 
 .. code-block:: bash
@@ -86,4 +86,4 @@ force the calculation of the BHTree files by running:
     galaxia -s [warp or nowarp] example_galaxyModelParams.txt
 
 BHTree files will now be written in the GalaxyData folder specified
-in example_galaxyModelParams.txt.
+in :code:`example_galaxyModelParams.txt`.
