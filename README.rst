@@ -59,12 +59,12 @@ Running galaxia
 The functions and features of galaxia are outlined on the
 `galaxia documentation page <http://galaxia.sourceforge.net/Galaxia3pub.html>`_.
 We provide an example of the required galaxia parameter file
-at `example_galaxiaParams.txt <example_galaxiaParams.txt>`_.
+at `example_galaxiaParams.txt <docs/example_galaxiaParams.txt>`_.
 
 Our version requires an additional parameter file that states
 the location of the GalaxiaData directory and the galaxy model parameters.
 An example galaxyModel parameter file is located
-at `example_galaxyModelParams.txt <example_galaxyModelParams.txt>`_.
+at `example_galaxyModelParams.txt <docs/example_galaxyModelParams.txt>`_.
 
 To run galaxia with this parameter file, place it as the next argument after the
 regular galaxia parameter file.

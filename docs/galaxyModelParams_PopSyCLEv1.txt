@@ -1,0 +1,12 @@
+GalaxiaData /Users/Michael/PycharmProjects/galaxia/GalaxiaData
+bulge_Rc 2.54
+bulge_x0 1.59
+bulge_y0 0.424
+bulge_z0 0.424
+bulge_alpha 78.9
+bulge_beta 3.5
+bulge_gamma 91.3
+bulge_sigma_r 110
+bulge_sigma_phi 110
+bulge_sigma_z 100
+bulge_patternspeed 71.62
