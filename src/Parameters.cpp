@@ -119,7 +119,7 @@ void Parameters::usage(void )
     cout<<"\t galaxia-"<<version()<<" -a code to generate a synthetic galaxy survey"<<endl;
 	cout<<endl;
 	cout<<"USAGE:"<<endl;
-    cout<<"\t galaxia\t -s parameterfile galaxymodelfile"<<endl;
+    cout<<"\t galaxia\t -s [warp or nowarp] galaxymodelfile"<<endl;
     cout<<"\t galaxia\t -r parameterfile galaxymodelfile"<<endl;
     cout<<"\t galaxia\t -a --psys=photometricSystem filename galaxymodelfile"<<endl;
     cout<<"\t galaxia\t -r --nfile=haloname [--hdim=3 or 6] parameterfile galaxymodelfile"<<endl;
