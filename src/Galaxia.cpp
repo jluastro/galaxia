@@ -394,26 +394,6 @@ int main(int argc, char **argv)
 
 	if ((All.fSample > 0.0) && (All.option == 1))
 	{
-		//----------------------------------------------------
-		//		stringstream sout;
-		//		sout<<All.outputDir<<All.SuSuffix<<"/"<<All.halosatFile<<".ebf";
-		//		string fname=sout.str();
-		string fname = All.outputDir + All.SuSuffix + "/" + All.outputFile
-				+ ".ebf";
-		SurveyDesign sur(fname, All.appMagLimits, All.absMagLimits,
-				All.colorLimits, &All);
-		sur.setGeometry(All.geometryOption, All.longitude, All.latitude, All.surveyArea);
-//		sur.setError(All.ErrorOption, All.sigma_r, All.sigma_vr, All.sigma_mu,All.sigma_fe, All.sigma_al);
-		sur.setCenter(All.posC);
-		srand48(7);
-		//----------------------------------------------------
-		timer2.start();
-		IsochroneDB ic(All.inputDir + "Isochrones/", "padova/", All.photoSys, All.magcolorNames, 0);
-		ic.print();
-		timer2.print("Time Isocrhone Reading");
-		//-----------------------------------------------------
-		timer2.start();
-
 		// Force BHTree generation if they don't already exist
 		string bhtree_fname0;
 		string bhtree_fname1;
@@ -443,6 +423,22 @@ int main(int argc, char **argv)
 				timer2.print("Time Tree generation/reading =");
 			}
         }
+
+		string fname = All.outputDir + All.SuSuffix + "/" + All.outputFile
+				+ ".ebf";
+		SurveyDesign sur(fname, All.appMagLimits, All.absMagLimits,
+				All.colorLimits, &All);
+		sur.setGeometry(All.geometryOption, All.longitude, All.latitude, All.surveyArea);
+//		sur.setError(All.ErrorOption, All.sigma_r, All.sigma_vr, All.sigma_mu,All.sigma_fe, All.sigma_al);
+		sur.setCenter(All.posC);
+		srand48(7);
+		//----------------------------------------------------
+		timer2.start();
+		IsochroneDB ic(All.inputDir + "Isochrones/", "padova/", All.photoSys, All.magcolorNames, 0);
+		ic.print();
+		timer2.print("Time Isocrhone Reading");
+		//-----------------------------------------------------
+		timer2.start();
 
 		if(All.fieldTableFile.size()==0)
 		{
