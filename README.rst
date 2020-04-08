@@ -47,7 +47,7 @@ specify the location of the GalaxiaData folder in a galaxyModel parameter file
 as described below.
 
 You will now have a galaxia executable located in :code:`home/user/sw/bin/`. If this
-directory does now already exist in your PATH, then make sure to prepend it.
+directory does not already exist in your PATH, then make sure to prepend it.
 
 .. code-block:: bash
 
