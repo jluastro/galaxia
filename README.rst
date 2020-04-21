@@ -18,15 +18,15 @@ To install galaxia, first clone the GitHub repository.
     git clone git@github.com:jluastro/galaxia.git
 
 Next download and extract the GalaxiaData folder
-from our online server at :code:`astro.berkeley.edu/path/to/GalaxiaData.tar.gz`.
+from our online server at :code:`http://bhs.astro.berkeley.edu/GalaxiaData.tar.gz`.
 
 .. code-block:: bash
 
-    wget astro.berkeley.edu/path/to/GalaxiaData.tar.gz
+    wget http://bhs.astro.berkeley.edu/GalaxiaData.tar.gz
     tar xvf GalaxiaData.tar.gz
 
 This folder will need to be unique to each galaxy model that you
-run on galaxia, so you may need to copy multiple versions for
+run on galaxia, so you may need to download multiple versions for
 different galaxy models parameters.
 
 Next compile, make, and install the galaxia installation. We recommend following the
