@@ -11,7 +11,8 @@
 
 #include "StellarPopulation.h"
 
-StellarPopulation::StellarPopulation(int i,const double* posC,int warpFlareOn1,Interp* vcircP1,int option,const string &inputDir)
+StellarPopulation::StellarPopulation(int i,const double* posC,int warpFlareOn1,Interp* vcircP1,int option,
+                                     const string &inputDir, const string &galaxyModelFile)
 {
 	assert((i>=0)&&(i<=9));
 	switch (i)
@@ -29,7 +30,7 @@ StellarPopulation::StellarPopulation(int i,const double* posC,int warpFlareOn1,I
 		cout<<"Spheroid:"<<endl;
 		break;
 	case 9:
-		cpop=new Bulge(vcircP1);
+		cpop=new Bulge(vcircP1, galaxyModelFile);
 		cout<<"Bulge:"<<endl;
 		break;
 	default:

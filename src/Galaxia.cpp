@@ -10,7 +10,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "StellarPopulation.h"
-#include"Parameters.h"
+#include "Parameters.h"
 #include "Timer.h"
 #include "ebfvector.hpp"
 //#include "GInterpolator.h"
@@ -318,7 +318,7 @@ void runModel(SurveyDesign &sur, IsochroneDB& ic, Parameters &All,
 		{
 			timer3.start();
 			StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
-					All.option, All.inputDir);
+					All.option, All.inputDir, All.galaxyModelFile);
 			timer3.print("Time Tree generation/reading =");
 			timer3.start();
 			sp.spawn(sur, ic, All.fSample);
@@ -377,39 +377,53 @@ int main(int argc, char **argv)
 	//--------------------
 	Parameters All;
 	All.setFromArguments(argc, argv);
-	//	All.print();
 	nrRan = Ran(All.seed+4);
 	nrGauss = Normaldev(0.0, 1.0, All.seed);
 	Interp vcirc(All.inputDir + "Model/vcirc.dat");
 
 	if (All.option == 0)
 	{
-		char c;
-		cout << "Are you sure you want to create the BHTree file (Y/N): ";
-		cin >> c;
-		cout << endl;
-		if (c == 'Y')
-		{
-			for (int i = 0; i < 10; ++i)
-//			for (int i = 9; i < 10; ++i)
-			{
-				timer2.start();
-				StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
-						All.option, All.inputDir);
-				timer2.print("Time Tree generation/reading =");
-			}
-		}
-		else
-			cout << "Exiting without making tree" << endl;
-
+        for (int i = 0; i < 10; ++i)
+        {
+            timer2.start();
+            StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
+                    All.option, All.inputDir, All.galaxyModelFile);
+            timer2.print("Time Tree generation/reading =");
+        }
 	}
 
 	if ((All.fSample > 0.0) && (All.option == 1))
 	{
-		//----------------------------------------------------
-		//		stringstream sout;
-		//		sout<<All.outputDir<<All.SuSuffix<<"/"<<All.halosatFile<<".ebf";
-		//		string fname=sout.str();
+		// Force BHTree generation if they don't already exist
+		string bhtree_fname0;
+		string bhtree_fname1;
+		stringstream sout0;
+		stringstream sout1;
+        if((All.warpFlareOn)>0)
+        {
+            sout0<<All.inputDir<<"BHTree-2.2/bhtree_with_wf/bhtree_0_E0.ebf";
+            sout1<<All.inputDir<<"BHTree-2.2/bhtree_with_wf/bhtree_0_E1.ebf";
+        }
+        else
+        {
+            sout0<<All.inputDir<<"BHTree-2.2/bhtree_no_wf/bhtree_0_E0.ebf";
+            sout1<<All.inputDir<<"BHTree-2.2/bhtree_no_wf/bhtree_0_E1.ebf";
+        }
+        bhtree_fname0=sout0.str();
+        bhtree_fname1=sout1.str();
+
+        if (!(fopen(bhtree_fname0.c_str(), "r")) && !(fopen(bhtree_fname1.c_str(), "r"))){
+			cout<<"-- BHTree missing from "<<All.inputDir<<endl;
+			cout<<"-- Forcing BHTree generation"<<endl;
+			for (int i = 0; i < 10; ++i)
+			{
+				timer2.start();
+				StellarPopulation sp(i, All.posC, All.warpFlareOn, &vcirc,
+						0, All.inputDir, All.galaxyModelFile);
+				timer2.print("Time Tree generation/reading =");
+			}
+        }
+
 		string fname = All.outputDir + All.SuSuffix + "/" + All.outputFile
 				+ ".ebf";
 		SurveyDesign sur(fname, All.appMagLimits, All.absMagLimits,
@@ -425,7 +439,6 @@ int main(int argc, char **argv)
 		timer2.print("Time Isocrhone Reading");
 		//-----------------------------------------------------
 		timer2.start();
-
 
 		if(All.fieldTableFile.size()==0)
 		{

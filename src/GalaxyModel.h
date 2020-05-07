@@ -9,23 +9,28 @@
  * of the source code distribution tree.                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef STELLARPOPULATION_H_
-#define STELLARPOPULATION_H_
-#include"BHTree.h"
-#include"IsochroneDB.h"
-#include"SurveyDesign.h"
 
-class StellarPopulation
+
+#ifndef GALAXYMODEL_H_
+#define GALAXYMODEL_H_
+
+#include "Parameters.h"
+
+class GalaxyModel
 {
 public:
-	StellarPopulation(int i,const double* posC,int warpFlareOn1,Interp *vcircP1,int option,
-	                  const string &inputDir, const string &galaxyModelFile);
-	void spawn(SurveyDesign &sur,IsochroneDB &ic,double fSample);
-	virtual ~StellarPopulation();
-private:
-	StarParticle Star;
-	BHTree BHT;
-	Population* cpop;
+	GalaxyModel();
+	~GalaxyModel();
+	void setFromParameterFile(const string fname);
+	void checkCompilation( );
+
+	string GalaxiaData;
+	double bulge_sigma_r, bulge_sigma_phi, bulge_sigma_z;
+	double bulge_x0, bulge_y0, bulge_z0;
+	double bulge_alpha, bulge_beta, bulge_gamma;
+	double bulge_Rc, bulge_patternspeed;
+
+	std::vector<ParMem>  par_list;
 };
 
-#endif /* STELLARPOPULATION_H_ */
+#endif /*GALAXYMODEL_H_*/

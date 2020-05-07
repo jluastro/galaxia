@@ -11,10 +11,11 @@
 
 #include "Parameters.h"
 #include "CompatibilityChecks.h"
+#include "GalaxyModel.h"
 
 string version()
 {
-	string s="0.7.2";
+	string s="0.7.2.1";
 	return s;
 }
 
@@ -36,7 +37,7 @@ Parameters::Parameters()
 
 //----General options-----------------------------------------
 	par_list.push_back(ParMem("outputFile",&outputFile,STRING,"Examples/galaxy",1));
-	par_list.push_back(ParMem("codeDataDir",&inputDir,STRING,CODEDATAPATH,0));
+	par_list.push_back(ParMem("galaxyModelFile",&galaxyModelFile,STRING,"",0));
 	if(inputDir[inputDir.length()-1]!='/')
 		inputDir+="/";
 	par_list.push_back(ParMem("outputDir",&outputDir,STRING,"Examples/",1));
@@ -81,7 +82,7 @@ Parameters::Parameters()
 #undef INT
 
 }
-#undef CODEDATAPATH
+
 
 
 Parameters::~Parameters()
@@ -115,13 +116,15 @@ void Parameters::usage(void )
 {
 	cout<<endl;
 	cout<<"NAME:"<<endl;
-    cout<<"\t galaxia-"<<version()<<" -a code to generate a synthetic galaxy survey"<<endl;
+    cout<<"\t galaxia-"<<version()<<" - a code to generate a synthetic galaxy survey"<<endl;
+    cout<<"\t Modified to ingest galaxy model parameter files."<<endl;
+    cout<<"\t Source: https://github.com/jluastro/galaxia"<<endl;
 	cout<<endl;
 	cout<<"USAGE:"<<endl;
-    cout<<"\t galaxia\t -s parameterfile"<<endl;
-    cout<<"\t galaxia\t -r parameterfile"<<endl;
-    cout<<"\t galaxia\t -a --psys=photometricSystem filename"<<endl;
-    cout<<"\t galaxia\t -r --nfile=haloname [--hdim=3 or 6] parameterfile"<<endl;
+    cout<<"\t galaxia\t -s [warp or nowarp] galaxymodelfile"<<endl;
+    cout<<"\t galaxia\t -r parameterfile galaxymodelfile"<<endl;
+    cout<<"\t galaxia\t -a --psys=photometricSystem filename galaxymodelfile"<<endl;
+    cout<<"\t galaxia\t -r --nfile=haloname [--hdim=3 or 6] parameterfile galaxymodelfile"<<endl;
     cout<<"\t galaxia\t --copyright "<<endl;
     cout<<"\t galaxia\t --help "<<endl;
 	cout<<"DESCRIPTION:"<<endl;
@@ -326,7 +329,7 @@ void Parameters::load_sat_list()
 void Parameters::setFromArguments(int argc, char **argv)
 {
 //	strcpy(halosatFile, "tnull");
-	cout<<"CODEDATAPATH="<<inputDir<<endl;
+	bool parameterFileLoaded = false;
 	option=-1;
 	char * c1;
 	int i;
@@ -340,7 +343,7 @@ void Parameters::setFromArguments(int argc, char **argv)
 
 				if (strcmp(argv[i], "--version") == 0)
 				{
-					cout << "Version 0.2" << endl;
+					cout << "Version 0.7.2.1" << endl;
 					exit(1);
 				}
 				else if (strcmp(argv[i], "--help") == 0)
@@ -408,16 +411,34 @@ void Parameters::setFromArguments(int argc, char **argv)
 				}
 			}
 			else
-//				strcpy(halosatFile, argv[i]);
-				parameterFile=argv[i];
+			{
+                if (!parameterFileLoaded){
+                    parameterFile=argv[i];
+                    parameterFileLoaded = true;
+                } else {
+                    galaxyModelFile=argv[i];
+                }
+			}
 			i++;
 		}
 
 		if(parameterFile.size()==0)
 		{
-			cout<<"Parameter file or required argument  not specified"<<endl;
+			cout<<"Parameter file or required argument not specified"<<endl;
 			usage();
 		}
+		if(galaxyModelFile.size()==0)
+		{
+			cout<<"Galaxy model file or required argument not specified"<<endl;
+			usage();
+		}
+
+        // Change inputDir, the location of GalaxiaData, to variable from galaxyModelFile
+        GalaxyModel GalaxyModelParams;
+        GalaxyModelParams.setFromParameterFile(galaxyModelFile);
+        inputDir = GalaxyModelParams.GalaxiaData;
+        cout<<"inputDir = "<<inputDir<<endl;
+
 		if(outputFile.size()==0)
 		{
 			cout<<"Output file file not specified"<<endl;
@@ -432,7 +453,7 @@ void Parameters::setFromArguments(int argc, char **argv)
 				warpFlareOn=1;
 			else
 			{
-				cout<<"required argument should be warp  or nowarp"<<endl;
+				cout<<"required argument should be warp or nowarp"<<endl;
 				usage();
 			}
 

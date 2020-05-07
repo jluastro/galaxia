@@ -117,6 +117,7 @@ public:
 //	char halosatFile[512],inputDir[512],SuSuffix[512],isoFileCustom[512],appendString[512],parameterFile[512];
 //	char outputDir[512];
 	string outputFile,inputDir,SuSuffix,parameterFile,outputDir,fieldTableFile,nbodyFile,addstring;
+	string galaxyModelFile;
 	//---Survey  options--------------------------------------------
 	int geometryOption;
 	double surveyArea,fSample;
