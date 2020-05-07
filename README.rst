@@ -33,11 +33,11 @@ Next compile, make, and install the galaxia installation. We recommend following
 non root installation outlined in
 the `galaxia documentation <http://galaxia.sourceforge.net/Galaxia3pub.html>`_.
 The prefix argument specifies the folder where the executable will be written to.
-As stated in the original documentation, if you want to install in :code:`home/user/sw/bin/` then run:
+If you want to install in :code:`PATH/TO/galaxia/bin` then run:
 
 .. code-block:: bash
 
-    ./configure --prefix=home/user/sw
+    ./configure --prefix=PATH/TO/galaxia
     make
     make install
 
@@ -46,12 +46,12 @@ has no effect on the execution of the code. Instead the user is asked to
 specify the location of the GalaxiaData folder in a galaxyModel parameter file
 as described below.
 
-You will now have a galaxia executable located in :code:`home/user/sw/bin/`. If this
-directory does not already exist in your PATH, then make sure to prepend it.
+You will now have a galaxia executable located in :code:`PATH/TO/galaxia/bin`. If this
+directory does not already exist in your PATH environment variable, then make sure to prepend it.
 
 .. code-block:: bash
 
-    export PATH=home/user/sw/bin/:$PATH
+    export PATH=PATH/TO/galaxia/bin:$PATH
 
 Running galaxia
 ----------------
