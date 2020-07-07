@@ -3,9 +3,11 @@ galaxia
 
 `galaxia <http://galaxia.sourceforge.net>`_ is a code for generating a
 synthetic model of the galaxy. This repository is a modified version of
-galaxia that enables the user to modify the parameters of the galaxy model.
-This README outlines a slightly different installation and usage than the
-one described on the galaxia documentation page.
+galaxia (*Sharma, S., Bland-Hawthorn, J., Johnston, K.
+V., & Binney, J. 2011, ApJ, 730,3*) that enables the user to modify the 
+parameters of the galaxy model. This README outlines a slightly different 
+installation and usage than the one described on the galaxia 
+documentation page.
 
 
 Installation
